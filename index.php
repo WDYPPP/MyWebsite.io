@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Device Inventory System</title>
+</head>
+<body>
+    <form action="includes/script.php" onsubmit="result()" method="post">
+
+        <br><label for="name">Device Name: </label><input type="text" name="name" id="name" required>
+
+        <br><label for="type">Device Type: </label>
+        <select name="type" id="type" >
+            <option value=""></option>
+            <option value="router">Router</option>
+            <option value="switch">Switch</option>
+            <option value="laptop">Laptop</option>
+            <option value="printer">Printer</option>
+            <option value="phone">Phone</option>
+        </select> 
+
+        <br><label for="vendor">Vendor: </label><input type="text" name="vendor" id="vendor" >
+        <br><label for="mac">MAC Address: </label><input type="text" name="mac" id="mac">
+        <br><label for="ip">IP Address: </label><input type="text" name="ip" id="ip">
+        
+        <br><label for="location">Location: </label>
+
+        <select name="location" id="location" >
+            <option value=""></option>
+            <option value="hq">HQ</option>
+        </select>
+
+        <br><label for="status">Status: </label>
+        <select name="status" name="status" id="status" >
+            <option value=""></option>
+            <option value="online">Online</option>
+            <option value="offlie">Offline</option>
+            <option value="writeoff">Writeoff</option>
+        </select>
+
+        <br><input type="submit" value="Add Device"/>
+
+</body>
+</html>
