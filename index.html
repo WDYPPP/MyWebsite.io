@@ -6,7 +6,11 @@
     <title>Device Inventory System</title>
 </head>
 <body>
-    <form action="includes/script.php" onsubmit="result()" method="post">
+    <form action="index.html" method="post">
+
+    <?php
+    echo "This is PHP inside HTML!";
+    ?>
 
         <br><label for="name">Device Name: </label><input type="text" name="name" id="name" required>
 
@@ -40,7 +44,7 @@
         </select>
 
         <br><input type="submit" value="Add Device"/>
-
+        
 </body>
 
 
