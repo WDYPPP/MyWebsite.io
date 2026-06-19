@@ -3,43 +3,112 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Device Inventory System</title>
+    <title>Assets Inventory System</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 </head>
 <body>
-    <form action="includes/script.php" onsubmit="result()" method="post">
+    <div class="mx-auto p-5" style="max-width: 600px;">
 
-        <br><label for="name">Device Name: </label><input type="text" name="name" id="name" required>
+        <form action="includes/script.php" method="post">
 
-        <br><label for="type">Device Type: </label>
-        <select name="type" id="type" >
-            <option value=""></option>
-            <option value="router">Router</option>
-            <option value="switch">Switch</option>
-            <option value="laptop">Laptop</option>
-            <option value="printer">Printer</option>
-            <option value="phone">Phone</option>
-        </select> 
+            <div class="row mb-3">
+                <label for="name" class="col-sm-3 col-form-label">Device Name</label>
+                <div class="col-sm-9">
+                <input type="text" class="form-control" id="name" name="name" required>
+                </div>
+            </div>
 
-        <br><label for="vendor">Vendor: </label><input type="text" name="vendor" id="vendor" >
-        <br><label for="mac">MAC Address: </label><input type="text" name="mac" id="mac">
-        <br><label for="ip">IP Address: </label><input type="text" name="ip" id="ip">
-        
-        <br><label for="location">Location: </label>
+            <div class="row mb-3">
+                <label for="type" class="col-sm-3 col-form-label">Device Type</label>
+                <div class="col-sm-9">
+                    <select class="form-select" id="type" name="type">
+                        <option value=""></option>
+                        <option value="router">Router</option>
+                        <option value="switch">Switch</option>
+                        <option value="laptop">Laptop</option>
+                        <option value="printer">Printer</option>
+                        <option value="phone">Phone</option>
+                    </select>
+                </div>
+            </div>
 
-        <select name="location" id="location" >
-            <option value=""></option>
-            <option value="hq">HQ</option>
-        </select>
+            <div class="row mb-3">
+                <label for="vendor" class="col-sm-3 col-form-label">Vendor</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" id="vendor" name="vendor">
+                </div>
+            </div>
 
-        <br><label for="status">Status: </label>
-        <select name="status" name="status" id="status" >
-            <option value=""></option>
-            <option value="online">Online</option>
-            <option value="offlie">Offline</option>
-            <option value="writeoff">Writeoff</option>
-        </select>
+            <div class="row mb-3">
+                <label for="mac" class="col-sm-3 col-form-label">MAC Address</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" id="mac" name="mac">
+                </div>
+            </div>
 
-        <br><input type="submit" value="Add Device"/>
+            <div class="row mb-3">
+                <label for="ip" class="col-sm-3 col-form-label">IP Address</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" id="ip" name="ip">
+                </div>
+            </div>
 
+            <div class="row mb-3">
+                <label for="location" class="col-sm-3 col-form-label">Location</label>
+                <div class="col-sm-9">
+                    <select class="form-select" id="location" name="location">
+                        <option value=""></option>
+                        <option value="hq">HQ</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <label for="status" class="col-sm-3 col-form-label">Status</label>
+                <div class="col-sm-9">
+                    <select class="form-select" id="status" name="status">
+                        <option value=""></option>
+                        <option value="online">Online</option>
+                        <option value="offline">Offline</option>
+                        <option value="writeoff">Writeoff</option>
+                        <option value="maintenance">Maintenance</option>
+                    </select>
+                </div>
+            </div>
+
+        <!-- Submit button triggers modal -->
+        <div class="row mb-3">
+            <div class="col-sm-9 offset-sm-3">
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#submitModal">
+                Add Device
+            </button>
+            </div>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="submitModal" tabindex="-1" aria-labelledby="submitModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="submitModalLabel">Confirm Submission</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <div class="modal-body">Are you sure you want to add this device?</div>
+                
+                <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+
+                <!-- Actual form submission -->
+                <br><br>
+                <button type="submit" class="btn btn-primary">Yes, Add Device</button>
+                </div>
+            </div>
+            </div>
+        </div>
+
+        </form>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 </body>
 </html>
