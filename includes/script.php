@@ -1,38 +1,42 @@
 <?php
 
-$home = "Location: ../index.php";
-
 if($_SERVER["REQUEST_METHOD"] == "POST"){
-    $name = htmlspecialchars($_POST["name"]);
-    $type = htmlspecialchars($_POST["type"]);
-    $vendor = htmlspecialchars($_POST["vendor"]);
-    $mac = htmlspecialchars($_POST["mac"]);
-    $ip = htmlspecialchars($_POST["ip"]);
-    $location = htmlspecialchars($_POST["location"]);
-    $status = htmlspecialchars($_POST["status"]);
+    $name = trim($_POST["name"] ?? "");
+    $type = trim($_POST["type"] ?? "");
+    $vendor = trim($_POST["vendor"] ?? "");
+    $mac = trim($_POST["mac"] ?? "");
+    $ip = trim($_POST["ip"] ?? "");
+    $location = trim($_POST["location"] ?? "");
+    $status = trim($_POST["status"] ?? "");
+
+    // Check missing field
+    if ($name === "") {
+        echo("Missing fields");
+        exit();
+    }
+
+    // Connect to database
+    require_once "dbh.inc.php";
 
     try{
-        header("Location: dashboard.php?status=success");
-
-        // Connect to database
-        require_once "dbh.inc.php";
-
         $query = "INSERT INTO devices(device_name,device_type,vendor,mac_address,ip_address,location,status)
         VALUES(?, ?, ?, ?, ?, ?, ?);";
 
         $statement = $pdo->prepare($query);
-
         $statement->execute([$name, $type, $vendor, $mac, $ip, $location, $status]);
+        $statement = null;
 
-        require "dashboard.php";
+        header("Location: dashboard.php?status=success");
 
         die();
 
     } catch(PDOException $e){
         die("Query failed: " . $e->getMessage());
     }
+
 }
 else{
-    header($home);
+    header("Location: ../index.php");
+    die();
 }
 

@@ -4,12 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Assets Inventory System</title>
+    <link rel="stylesheet" href="includes/style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 </head>
 <body>
     <div class="mx-auto p-5" style="max-width: 600px;">
+        <div class="container py-5">
+            <div class="page-header">
+                <h2>Assets Inventory System</h2>
+                <br><br>
+                <a href="includes/dashboard.php" class="btn btn-outline-primary">Dashboard</a>
+            </div>
 
-        <form action="includes/script.php" method="post">
+            <form action="includes/script.php" method="post">
 
             <div class="row mb-3">
                 <label for="name" class="col-sm-3 col-form-label">Device Name</label>
@@ -22,7 +29,7 @@
                 <label for="type" class="col-sm-3 col-form-label">Device Type</label>
                 <div class="col-sm-9">
                     <select class="form-select" id="type" name="type">
-                        <option value=""></option>
+                        <option value="" disabled selected>Select device type></option>
                         <option value="router">Router</option>
                         <option value="switch">Switch</option>
                         <option value="laptop">Laptop</option>
@@ -42,14 +49,20 @@
             <div class="row mb-3">
                 <label for="mac" class="col-sm-3 col-form-label">MAC Address</label>
                 <div class="col-sm-9">
-                    <input type="text" class="form-control" id="mac" name="mac">
+                    <input type="text" class="form-control" id="mac" name="mac"
+                    placeholder= "AA:BB:CC:DD:EE:FF"
+                    pattern="^([0-9A-Fa-f]{2}[:-]){5}[0-9A-Fa-f]{2}$"
+                    title="Format: AA:BB:CC:DD:EE:FF">
                 </div>
             </div>
 
             <div class="row mb-3">
                 <label for="ip" class="col-sm-3 col-form-label">IP Address</label>
                 <div class="col-sm-9">
-                    <input type="text" class="form-control" id="ip" name="ip">
+                    <input type="text" class="form-control" id="ip" name="ip"
+                           placeholder="192.168.1.1"
+                           pattern="^(\d{1,3}\.){3}\d{1,3}$"
+                           title="Format: e.g. 192.168.1.1">
                 </div>
             </div>
 
@@ -57,7 +70,7 @@
                 <label for="location" class="col-sm-3 col-form-label">Location</label>
                 <div class="col-sm-9">
                     <select class="form-select" id="location" name="location">
-                        <option value=""></option>
+                        <option value="" disabled selected>Select device location</option>
                         <option value="hq">HQ</option>
                     </select>
                 </div>
@@ -67,7 +80,7 @@
                 <label for="status" class="col-sm-3 col-form-label">Status</label>
                 <div class="col-sm-9">
                     <select class="form-select" id="status" name="status">
-                        <option value=""></option>
+                        <option value="" disabled selected>Select device status</option>
                         <option value="online">Online</option>
                         <option value="offline">Offline</option>
                         <option value="writeoff">Writeoff</option>
@@ -95,7 +108,7 @@
                 </div>
 
                 <div class="modal-body">Are you sure you want to add this device?</div>
-                
+
                 <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
 
@@ -106,9 +119,9 @@
             </div>
             </div>
         </div>
-
         </form>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    </div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 </body>
 </html>

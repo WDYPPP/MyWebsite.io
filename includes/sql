@@ -1,0 +1,13 @@
+CREATE TABLE `if0_42219202_databases`.`devices`( 
+    `device_id` INT(50) NOT NULL AUTO_INCREMENT , 
+    `device_name` VARCHAR(50) NOT NULL , 
+    `device_type` VARCHAR(50) NOT NULL , 
+    `vendor` VARCHAR(50) NOT NULL , 
+    `mac_address` VARCHAR(17) NOT NULL , 
+    `ip_address` VARCHAR(15) NOT NULL , 
+    `location` VARCHAR(50) NOT NULL , 
+    `status` VARCHAR(15) NOT NULL , 
+    PRIMARY KEY (`device_id`(50))
+    )
+
+ENGINE = MyISAM;

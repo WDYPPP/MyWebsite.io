@@ -1,9 +1,11 @@
 <?php
 
 // Connect to database
-$dsn = "mysql:host=localhost;dbname=databases";
-$dbusername = "root";
-$dbpassword = "";
+$host = "sql103.infinityfree.com";
+$databasename = "if0_42219202_databases";
+$dsn = "mysql:host=$host;dbname=$databasename";
+$dbusername = "if0_42219202";
+$dbpassword = "kB6ho2oATawr";
 
 // Error handle with database connection failed
 try{
